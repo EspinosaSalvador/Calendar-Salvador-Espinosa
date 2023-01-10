@@ -1,6 +1,47 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+// ? Using this code below to see if my day.js is working on the terminal it should show me the current time.
+console.log(dayjs())
+
+const timer = document.getElementById("timer");
+const day = document.getElementById("day");
+
+// ? Update the timer every 1000 milliseconds (1 second)
+
+setInterval(function() {
+
+  // ? Using day.js to get the current time.
+
+  var currentTime = dayjs().format("hh:mm:ss A");
+  var currentDay = dayjs().format("dddd, DD, MMMM, YYYY");
+
+  // ? Update the contents of the element 
+
+  day.innerHTML = currentDay
+  timer.innerHTML = currentTime;
+}, 1000);
+
+// * Styles for the Clock.
+
+timer.style.fontSize = "5rem"
+timer.style.position = "center"
+timer.style.textAlign = "center"
+
+// * Styles for the Dates
+
+day.style.fontSize = "3rem"
+day.style.position = "center"
+day.style.textAlign = "center"
+
+
+
+
+
+
+
+
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
