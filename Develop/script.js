@@ -25,6 +25,7 @@ day.style.fontSize = "3rem";
 day.style.position = "center";
 day.style.textAlign = "center";
 
+
 const saveBtns = document.querySelectorAll(".saveBtn");
 saveBtns.forEach(btn => {
   btn.addEventListener('click', function(e) {
@@ -40,5 +41,8 @@ saveBtns.forEach(btn => {
     if (value) textarea.value = value;
   });
 
-
-  
+  const clearBtn = document.getElementById("clear-local-storage");
+  clearBtn.addEventListener("click", function(){
+    localStorage.clear(); 
+    location.reload();
+  })
