@@ -61,17 +61,17 @@ saveBtns.forEach(btn => {
   console.log(hours)
 
   const timeblocks = document.querySelectorAll(".time-block");
-  const currentHour = new Date().getHours();
-
-  hours.forEach((hour, index) => {
-    const hoursInt =
-    parseInt(hour.replace("AM", "").replace("PM", ""));
-    const timeblock = timeblocks[index];
-    if(hoursInt < currentHour) {
-      timeblock.classList.add("past");
-    } else if (hoursInt === currentHour) {
-      timeblock.classList.add("present");
-    } else {
-      timeblock.classList.add("future");
-    }
-  });
+  if(timeblocks.length) {
+    const currentHour = new Date().getHours();
+    hours.forEach((hour, index) =>{
+      const hoursInt = parseInt(hour.replace("AM", "").replace("PM", ""));
+      const timeblock = timeblocks[index];
+      if(timeblock && hoursInt < currentHour) {
+        timeblock.classList.add("past");
+      } else if (timeblock && hoursInt === currentHour) {
+        timeblock.classList.add("present");
+      } else if (timeblock) {
+        timeblock.classList.add("future");
+      }
+    });
+  }
