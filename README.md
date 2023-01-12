@@ -21,6 +21,8 @@ This are the following feautures of the Calendar the calendar is up to date due 
 
 there is a button that Clears the local Storage it is above the calendar.
 
+* NOTE THAT CLEARING THE LOCAL STOREAGE HAPPENS WHEN WE EXIT THE WEBPAGE. AND WE OPEN IT AGAIN.
+
 also the Calendar changes color depending on the hour if its in the past, present or future.
 
 * Past = Grey
