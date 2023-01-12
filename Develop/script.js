@@ -46,3 +46,32 @@ saveBtns.forEach(btn => {
     localStorage.clear(); 
     location.reload();
   })
+
+  // * for loop
+
+  var hours = []
+  for (let i = 0; i < 24; i++) {
+    let hour = i % 12;
+    if (hour === 0) {
+      hour = 12;
+    }
+    hours.push(`${hour} ${i < 12 ? "AM" : "PM"}`);
+  }
+
+  console.log(hours)
+
+  const timeblocks = document.querySelectorAll(".time-block");
+  const currentHour = new Date().getHours();
+
+  hours.forEach((hour, index) => {
+    const hoursInt =
+    parseInt(hour.replace("AM", "").replace("PM", ""));
+    const timeblock = timeblocks[index];
+    if(hoursInt < currentHour) {
+      timeblock.classList.add("past");
+    } else if (hoursInt === currentHour) {
+      timeblock.classList.add("present");
+    } else {
+      timeblock.classList.add("future");
+    }
+  });
